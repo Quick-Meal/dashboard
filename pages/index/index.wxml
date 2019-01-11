@@ -1,0 +1,326 @@
+<view>
+  <swiper class="swiper-menu" indicator-dots="true" autoplay="true" interval="3000" duration="500">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item class="swiper-imgs">
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="nav">
+  <view class="search-btn">
+    <image src="/images/search_ico.png"></image>
+  </view>
+  <view class="menu-info">
+    <view class="default active">默认</view>
+    <view class="new">最新</view>
+    <view class="hot">最热</view>
+  </view>
+</view>
+<view class="aslide-menu">
+  <scroll-view class="aslide-box" scroll-y="true" scroll-x="false">
+    <view class="{{status==0 ? 'in' : ''}}" data-index="0" bindtap="changeMenu">推荐</view>
+    <view class="{{status==1 ? 'in' : ''}}" data-index="1" bindtap="changeMenu">中餐</view>
+    <view class="{{status==2 ? 'in' : ''}}" data-index="2" bindtap="changeMenu">西餐</view>
+    <view class="{{status==3 ? 'in' : ''}}" data-index="3" bindtap="changeMenu">甜点</view>
+    <view class="{{status==4 ? 'in' : ''}}" data-index="4" bindtap="changeMenu">饮料</view>
+  </scroll-view>
+  <view class="aslide-content-section">
+    <scroll-view class="aslide-content" scroll-y="false" scroll-x="true" scroll-into-view="{{currentPosition}}" scroll-with-animation="true" bindscrolltolower="scrollBottom">
+      <view id="order0" class="aslide-item">
+        <text class="aslide-item-title">推荐</text>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img" bindtap="previewImages">
+            <image src="/food images/steamed pork ribs.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">粤式蒸排骨</text>
+            <text class="red">￥20.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 5.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">板栗粥</text>
+            <text class="red">￥5.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/grilled sausage.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">烤香肠</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+      </view>
+      <view id="order1" class="aslide-item">
+        <text class="aslide-item-title">中餐</text>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img" bindtap="previewImages">
+            <image src="/food images/steamed pork ribs.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">粤式蒸排骨</text>
+            <text class="red">￥20.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 7.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">煎饺</text>
+            <text class="red">￥5.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 6.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">蒸饺</text>
+            <text class="red">￥5.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 5.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">板栗粥</text>
+            <text class="red">￥5.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 4.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">玉米粥</text>
+            <text class="red">￥3.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 3.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">海鲜烩饭</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 2.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">扬州炒饭</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/main 1.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">白米饭</text>
+            <text class="red">￥1.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+      </view>
+      <view id="order2" class="aslide-item">
+        <text class="aslide-item-title">西餐</text>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/Baked potato.png"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">烤土豆</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/roasted wings.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">烤鸡翅</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/Fried chicken wings.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">炸鸡腿</text>
+            <text class="red">￥18.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/grilled sausage.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">烤香肠</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/Grilled Steak.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">西式牛排</text>
+            <text class="red">￥88.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/hamburger 3.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">炸鸡汉堡</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+      </view>
+      <view id="order3" class="aslide-item">
+        <text class="aslide-item-title">甜点</text>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/cake 1.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">布丁</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/cake 2.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">巧克力饼干</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/cake 3.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">吐司蛋糕</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/ice cream.png"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">蓝莓冰淇淋</text>
+            <text class="red">￥18.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+      </view>
+    <view id="order4" class="aslide-item">
+        <text class="aslide-item-title">饮料</text>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 2.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">柠檬汁</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 3.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">草莓汁</text>
+            <text class="red">￥10.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>  
+        </view><view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 4.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">七喜柠檬</text>
+            <text class="red">￥15.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 5.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">可乐</text>
+            <text class="red">￥4.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 6.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">雪碧</text>
+            <text class="red">￥4.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 7.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">果粒橙</text>
+            <text class="red">￥4.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>
+        <view class="aslide-item-info">
+          <view class="aslide-item-img">
+            <image src="/food images/juice 8.jpg"></image>
+          </view>
+          <view class="cart-info-container">
+            <text class="food-name">王老吉</text>
+            <text class="red">￥4.00</text>
+            <image class="cart-add" src="/images/add.png"></image>
+          </view>
+        </view>  
+    </scroll-view>
+  </view>
+</view>
