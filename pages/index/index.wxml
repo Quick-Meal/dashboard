@@ -8,14 +8,7 @@
   </swiper>
 </view>
 <view class="nav">
-  <view class="search-btn">
-    <image src="/images/search_ico.png"></image>
-  </view>
-  <view class="menu-info">
-    <view class="default active">默认</view>
-    <view class="new">最新</view>
-    <view class="hot">最热</view>
-  </view>
+  <view class="default">菜单</view>
 </view>
 <view class="aslide-menu">
   <scroll-view class="aslide-box" scroll-y="true" scroll-x="false">
@@ -36,7 +29,7 @@
           <view class="cart-info-container">
             <text class="food-name">粤式蒸排骨</text>
             <text class="red">￥20.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" data-foodname="粤式蒸排骨" data-picsource="/food images/steamed pork ribs.jpg" data-price="20.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
