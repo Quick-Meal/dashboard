@@ -1,16 +1,19 @@
 // pages/cart/cart.js
-var postData = require("../../data/post-data.js");
+//var postData = require("../index/cart.js");
+var app = getApp()
+
+
 Page({
   data: {
     cartListShow: true,
     showModal: false,
-    postList: postData.postList
+    postList: app.globalData.local_database
   },
   onLoad: function (options) {
     //this.setData({
     // postList: postData.postList
     //});
-    if (this.data.postList.length < 1) {
+    if (app.globalData.local_database < 1) {
       this.setData({
         showModal: true
       });
@@ -19,7 +22,7 @@ Page({
   plus: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
-    var num = that.data.postList[index].num;
+    var num = app.globalData.local_database[index].num;
     if (num > 1) {
       num--;
     } else {
@@ -32,7 +35,7 @@ Page({
             that.setData({
               postList: carts
             });
-            if (that.data.postList.length < 1) {
+            if (app.globalData.local_database.length < 1) {
               that.setData({
                 cartListShow: false,
                 showModal: true
@@ -44,18 +47,18 @@ Page({
         }
       })
     }
-    var carts = that.data.postList;
+    var carts = app.globalData.local_database;
     carts[index].num = num;
     that.setData({
       postList: carts
     });
-    //this.data.postList[index].num;
+    //app.globalData.local_database[index].num;
   },
   add: function (e) {
     var index = e.currentTarget.dataset.index;
-    var num = this.data.postList[index].num;
+    var num = app.globalData.local_database[index].num;
     num++;
-    var carts = this.data.postList;
+    var carts = app.globalData.local_database;
     carts[index].num = num;
     this.setData({
       postList: carts
@@ -64,7 +67,7 @@ Page({
   delThisFood: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
-    var carts = that.data.postList;
+    var carts = app.globalData.local_database;
     wx.showModal({
       title: '',
       content: '是否删除此菜品?',
@@ -74,7 +77,7 @@ Page({
           that.setData({
             postList: carts
           });
-          if (that.data.postList.length < 1) {
+          if (app.globalData.local_database.length < 1) {
             that.setData({
               cartListShow: false,
               showModal: true

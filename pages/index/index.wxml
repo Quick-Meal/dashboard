@@ -29,7 +29,10 @@
           <view class="cart-info-container">
             <text class="food-name">粤式蒸排骨</text>
             <text class="red">￥20.00</text>
-            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" data-foodname="粤式蒸排骨" data-picsource="/food images/steamed pork ribs.jpg" data-price="20.00"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="粤式蒸排骨" 
+            data-picsource="/food images/steamed pork ribs.jpg" 
+            data-price="20.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -39,7 +42,10 @@
           <view class="cart-info-container">
             <text class="food-name">板栗粥</text>
             <text class="red">￥5.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="板栗粥" 
+            data-picsource="/food images/main 5.jpg" 
+            data-price="5.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -49,7 +55,10 @@
           <view class="cart-info-container">
             <text class="food-name">烤香肠</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="烤香肠" 
+            data-picsource="/food images/grilled sausage.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
       </view>
@@ -62,7 +71,10 @@
           <view class="cart-info-container">
             <text class="food-name">粤式蒸排骨</text>
             <text class="red">￥20.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="粤式蒸排骨" 
+            data-picsource="/food images/steamed pork ribs.jpg" 
+            data-price="20.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -72,7 +84,10 @@
           <view class="cart-info-container">
             <text class="food-name">煎饺</text>
             <text class="red">￥5.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="煎饺" 
+            data-picsource="/food images/main 7.jpg" 
+            data-price="5.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -82,7 +97,10 @@
           <view class="cart-info-container">
             <text class="food-name">蒸饺</text>
             <text class="red">￥5.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="蒸饺" 
+            data-picsource="/food images/main 6.jpg" 
+            data-price="5.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -92,7 +110,10 @@
           <view class="cart-info-container">
             <text class="food-name">板栗粥</text>
             <text class="red">￥5.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="板栗粥" 
+            data-picsource="/food images/main 5.jpg" 
+            data-price="5.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -102,7 +123,10 @@
           <view class="cart-info-container">
             <text class="food-name">玉米粥</text>
             <text class="red">￥3.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="玉米粥" 
+            data-picsource="/food images/main 4.jpg" 
+            data-price="3.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -112,7 +136,10 @@
           <view class="cart-info-container">
             <text class="food-name">海鲜烩饭</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="海鲜烩饭" 
+            data-picsource="/food images/main 3.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -122,7 +149,10 @@
           <view class="cart-info-container">
             <text class="food-name">扬州炒饭</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="扬州炒饭"
+            data-picsource="/food images/main 2.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -132,7 +162,10 @@
           <view class="cart-info-container">
             <text class="food-name">白米饭</text>
             <text class="red">￥1.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="白米饭" 
+            data-picsource="/food images/main 1.jpg" 
+            data-price="1.00"></image>
           </view>
         </view>
       </view>
@@ -145,7 +178,10 @@
           <view class="cart-info-container">
             <text class="food-name">烤土豆</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="烤土豆" 
+            data-picsource="/food images/Baked potato.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -155,7 +191,10 @@
           <view class="cart-info-container">
             <text class="food-name">烤鸡翅</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="烤鸡翅" 
+            data-picsource="/food images/roasted wings.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -165,7 +204,10 @@
           <view class="cart-info-container">
             <text class="food-name">炸鸡腿</text>
             <text class="red">￥18.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="炸鸡腿" 
+            data-picsource="/food images/Fried chicken wings.jpg" 
+            data-price="18.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -175,7 +217,10 @@
           <view class="cart-info-container">
             <text class="food-name">烤香肠</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="烤香肠" 
+            data-picsource="/food images/grilled sausage.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -185,7 +230,10 @@
           <view class="cart-info-container">
             <text class="food-name">西式牛排</text>
             <text class="red">￥88.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="西式牛排" 
+            data-picsource="/food images/Grilled Steak.jpg" 
+            data-price="88.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -195,7 +243,10 @@
           <view class="cart-info-container">
             <text class="food-name">炸鸡汉堡</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="炸鸡汉堡" 
+            data-picsource="/food images/hamburger 3.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
       </view>
@@ -208,7 +259,10 @@
           <view class="cart-info-container">
             <text class="food-name">布丁</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="布丁" 
+            data-picsource="/food images/cake 1.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -218,7 +272,10 @@
           <view class="cart-info-container">
             <text class="food-name">巧克力饼干</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="巧克力饼干" 
+            data-picsource="/food images/cake 2.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -228,7 +285,10 @@
           <view class="cart-info-container">
             <text class="food-name">吐司蛋糕</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="吐司蛋糕" 
+            data-picsource="/food images/cake 3.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -238,7 +298,10 @@
           <view class="cart-info-container">
             <text class="food-name">蓝莓冰淇淋</text>
             <text class="red">￥18.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="蓝莓冰淇淋" 
+            data-picsource="/food images/ice cream.jpg" 
+            data-price="18.00"></image>
           </view>
         </view>
       </view>
@@ -251,7 +314,10 @@
           <view class="cart-info-container">
             <text class="food-name">柠檬汁</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="柠檬汁" 
+            data-picsource="/food images/juice 2.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -261,7 +327,10 @@
           <view class="cart-info-container">
             <text class="food-name">草莓汁</text>
             <text class="red">￥10.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="草莓汁" 
+            data-picsource="/food images/juice 3.jpg" 
+            data-price="10.00"></image>
           </view>
         </view>  
         </view><view class="aslide-item-info">
@@ -271,7 +340,10 @@
           <view class="cart-info-container">
             <text class="food-name">七喜柠檬</text>
             <text class="red">￥15.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="七喜柠檬" 
+            data-picsource="/food images/juice 4.jpg" 
+            data-price="15.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -281,7 +353,10 @@
           <view class="cart-info-container">
             <text class="food-name">可乐</text>
             <text class="red">￥4.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="可乐" 
+            data-picsource="/food images/juice 5.jpg" 
+            data-price="4.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -291,7 +366,10 @@
           <view class="cart-info-container">
             <text class="food-name">雪碧</text>
             <text class="red">￥4.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="雪碧" 
+            data-picsource="/food images/juice 6.jpg" 
+            data-price="4.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -301,7 +379,10 @@
           <view class="cart-info-container">
             <text class="food-name">果粒橙</text>
             <text class="red">￥4.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="果粒橙" 
+            data-picsource="/food images/juice 7.jpg" 
+            data-price="4.00"></image>
           </view>
         </view>
         <view class="aslide-item-info">
@@ -311,7 +392,10 @@
           <view class="cart-info-container">
             <text class="food-name">王老吉</text>
             <text class="red">￥4.00</text>
-            <image class="cart-add" src="/images/add.png"></image>
+            <image class="cart-add" src="/images/add.png" bindtap="AddToCart" 
+            data-foodname="王老吉" 
+            data-picsource="/food images/juice 8.jpg" 
+            data-price="4.00"></image>
           </view>
         </view>  
     </scroll-view>

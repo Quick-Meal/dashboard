@@ -2,7 +2,9 @@
 //获取应用实例
 var app = getApp()
 
-var cart_list = [];
+
+
+
 Page({
   data: {
     status: 0,
@@ -35,27 +37,27 @@ Page({
       title: '购物车+1',
       icon: 'succes',
       duration: 500,
-      mask: true
+      mask: false
     })
     var foodname = event.currentTarget.dataset.foodname;
     var picsource = event.currentTarget.dataset.picsource;
     var price = event.currentTarget.dataset.price;
     var num = 1;
     var flag = 0;
-    for (var x in cart_list)
+    for (var x in app.globalData.local_database)
     {
-      if (cart_list[x][0] == foodname) { 
-        cart_list[x][3]+=1;
+      if (app.globalData.local_database[x].foodName == foodname) { 
+        app.globalData.local_database[x].num+=1;
         flag = 1;
       }
     }
     if(flag==0){
-      cart_list.push([foodname, picsource, price, num])
+      app.globalData.local_database.push({ foodName: foodname, imgSrc: picsource, price: price, num:num})
     }
-    for (var i in cart_list) {
-      console.log(i + "-----" + cart_list[i]);
+
+    for (var x in app.globalData.local_database){
+      console.log(app.globalData.local_database[x].foodName + app.globalData.local_database[x].num)
     }
-    
 
   },
 
