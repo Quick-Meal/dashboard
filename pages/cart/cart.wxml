@@ -8,7 +8,7 @@
     <view class="sub-cart-middle">
       <view class="sub-cart-title">
         <text>{{item.foodName}}</text>
-        <text class="f20">￥{{item.price}}</text>
+        <text class="f20">￥{{item.price*item.num}}</text>
       </view>
       <view class="sub-cart-num">
         <view class="flex-1">数量:</view>

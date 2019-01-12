@@ -55,7 +55,7 @@ Page({
     if (app.globalData.local_database.length < 1) {
       wx.showToast({
         title: '购物车为空',
-        //icon: 'loading',
+        icon: 'loading',
         duration: 1000,
         mask: true
       })
