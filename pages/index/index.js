@@ -10,9 +10,9 @@ Page({
     status: 0,
     currentPosition: "order0",
     imgUrls: [
-      "/images/1.jpg",
-      "/images/1.jpg",
-      "/images/1.jpg"
+      "/images/zhujiemian1.jpg",
+      "/images/zhujiemian2.jpg",
+      "/images/zhujiemian3.jpg"
     ]
   },
   changeMenu: function (e) {
