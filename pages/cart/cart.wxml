@@ -30,7 +30,7 @@
 </view>
 <view class="cart_total">
   <view class="cart_total_inner">
-    <text class="total">合计:￥888.00</text>
+    <text class="total">合计:￥{{total_price}}</text>
     <view class="settle">结算</view>
   </view>
 </view>

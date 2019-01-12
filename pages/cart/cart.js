@@ -7,15 +7,27 @@ Page({
   data: {
     cartListShow: true,
     showModal: false,
-    postList: app.globalData.local_database
+    postList: app.globalData.local_database,
+    total_price:0
   },
+
+  calculate_sun: function () {
+    var sum =0;
+    for (var x in app.globalData.local_database) {
+      sum += app.globalData.local_database[x].price * 1.0 * app.globalData.local_database[x].num*1.0 
+    }
+    return sum;
+  },
+
   onLoad: function (options) {
     //this.setData({
     // postList: postData.postList
     //});
+
     if (app.globalData.local_database < 1) {
       this.setData({
-        showModal: true
+        showModal: true,
+        total_price: this.calculate_sun()
       });
     }
   },
@@ -23,7 +35,8 @@ Page({
     var that = this;
     var carts = app.globalData.local_database;
     that.setData({
-      postList: carts
+      postList: carts,
+      total_price: that.calculate_sun()
     });
   },
 
@@ -41,7 +54,8 @@ Page({
           if (res.confirm) {
             carts.splice(index, 1);
             that.setData({
-              postList: carts
+              postList: carts,
+              total_price: that.calculate_sun()
             });
             if (app.globalData.local_database.length < 1) {
               that.setData({
@@ -58,7 +72,8 @@ Page({
     var carts = app.globalData.local_database;
     carts[index].num = num;
     that.setData({
-      postList: carts
+      postList: carts,
+      total_price: that.calculate_sun()
     });
     //app.globalData.local_database[index].num;
   },
@@ -69,7 +84,8 @@ Page({
     var carts = app.globalData.local_database;
     carts[index].num = num;
     this.setData({
-      postList: carts
+      postList: carts,
+      total_price: this.calculate_sun()
     });
   },
   delThisFood: function (e) {
@@ -83,7 +99,8 @@ Page({
         if (res.confirm) {
           carts.splice(index, 1);
           that.setData({
-            postList: carts
+            postList: carts,
+            total_price: that.calculate_sun()
           });
           if (app.globalData.local_database.length < 1) {
             that.setData({
