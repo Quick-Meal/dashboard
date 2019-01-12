@@ -43,15 +43,9 @@
 <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
   
   <!--drawer content-->  
-  <form bindsubmit="formSubmit" > 
-    <view class='content'> 
-  <block wx:for="{{Length}}" wx:key="item"> 
-   <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
-  </block> 
- </view> 
- <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
- <view> 
-  <button class="btn-area" formType="submit" bindtap="powerDrawer">Submit</button> 
- </view> 
-</form> 
+  <view class="drawer_title">输入密码</view>  
+    <view class=" drawer_content">  
+      <input class="input_base" name="rName" type="password" bindinput="passWdInput"></input>  
+    </view>  
+  <view class="btn_ok" bindtap="submittoserver" data-statu="close">确定</view>  
 </view>

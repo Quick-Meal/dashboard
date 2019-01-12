@@ -267,8 +267,9 @@ page .wallets-password .input-content.active {
 }  
   
 .input_base {  
+    margin-top: 100rpx; 
     border: 2rpx solid #ccc;  
-    padding-left: 10rpx;  
+    margin-left: 50rpx;  
     margin-right: 50rpx;  
 }  
 .input_h30{  
