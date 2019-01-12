@@ -1,6 +1,6 @@
 // pages/nopay/nopay.js
 var app = getApp()
-
+var tmp
 Page({
   data: {
     userPwd: "1",
@@ -12,20 +12,44 @@ Page({
   },
 
   passWdInput: function (e) {
-    var that = this;
-    var tmp = e.detail.value;
-    
-    console.log(tmp);
-    that.setData({
+    tmp = e.detail.value;
+    this.setData({
       userPwd: tmp
     });
   },
 
   submittoserver: function(){
+
     var currentStatu = "close";
     this.util(currentStatu);
-    console.log(this.total_price);
-    console.log(this.userPwd);
+
+    //console.log(this.data.userPwd);
+    //console.log(this.data.total_price);
+
+    password = this.data.userPwd;
+    sum_price = this.data.total_price;
+
+    if_sucess = true;//服务器处理请求后返回的结果
+
+    if (if_sucess==true){
+      wx.showToast({
+        title: '支付成功',
+        icon: 'succes',
+        duration: 2000,
+        mask: true
+      })
+      
+    }
+    else{
+      wx.showToast({
+        title: '支付失败',
+        icon: 'loading',
+        duration: 2000,
+        mask: true
+      })
+    }
+
+
   },
  
 
@@ -39,6 +63,7 @@ Page({
     that.goto_logs();
     that.setData({
       total_price: that.calculate_sun(),
+      userPwd: "1",
     })
   },
 
@@ -49,7 +74,10 @@ Page({
 
 
   onShow:function(){
-    // 页面显示
+    this.setData({
+      total_price: this.calculate_sun(),
+      userPwd: tmp,
+    })
   },
 
   onHide:function(){
@@ -86,12 +114,11 @@ Page({
     }, 1000)
   },
 
-})
+  powerDrawer: function (e) {
+    var currentStatu = e.currentTarget.dataset.statu;
+    this.util(currentStatu)
+  },
 
-powerDrawer: function (e) {
-  var currentStatu = e.currentTarget.dataset.statu;
-  this.util(currentStatu)
-},
 util: function (currentStatu) {
   /* 动画部分 */
   // 第1步：创建动画实例   
@@ -156,4 +183,5 @@ calculate_sun: function () {
     sum += app.globalData.local_database[x].price * 1.0 * app.globalData.local_database[x].num * 1.0
   }
   return sum;
-},
+}
+})
