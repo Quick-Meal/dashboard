@@ -8,7 +8,7 @@
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#181E2C",
-    "navigationBarTitleText": "快食",
+    "navigationBarTitleText": "点餐小程序",
     "navigationBarTextStyle":"#FFFFFF"
   },
   "tabBar": {

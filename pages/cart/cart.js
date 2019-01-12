@@ -19,6 +19,14 @@ Page({
       });
     }
   },
+  onShow: function () {
+    var that = this;
+    var carts = app.globalData.local_database;
+    that.setData({
+      postList: carts
+    });
+  },
+
   plus: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
