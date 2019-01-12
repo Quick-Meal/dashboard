@@ -39,14 +39,19 @@
 <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
 <!--content-->  
 <!--使用animation属性指定需要执行的动画-->  
+
 <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
   
   <!--drawer content-->  
-  <view class="drawer_title">输入密码</view>  
-  <view class="drawer_content">  
-    <view class="top grid">  
-      <input class="input_base input_h30 col-1" name="rName" value="可自行定义内容"></input>  
-    </view>  
-  </view>  
-  <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>  
+  <form bindsubmit="formSubmit" > 
+    <view class='content'> 
+  <block wx:for="{{Length}}" wx:key="item"> 
+   <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
+  </block> 
+ </view> 
+ <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
+ <view> 
+  <button class="btn-area" formType="submit" bindtap="powerDrawer">Submit</button> 
+ </view> 
+</form> 
 </view>
