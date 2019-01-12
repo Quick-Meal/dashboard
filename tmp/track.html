@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="img/favicon.jpg">
+        <title>GPS Vehicle Monitoring System</title>
+		<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+        <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <style type="text/css">
+        body,html,#containerss{
+        height: 600px;
+        margin: 0px;
+        }
+        </style>
+	</head>
+	
+	
+	<body>
+		
+		<!--网站头部-->
+
+		<div class="contmodal-header" style="background:#563d7c;">
+			<div class="container">
+		
+				<h2><a href="homepage.html"><strong style="color:#FFFFFF; font-size: 30px;"> GPS Vehicle Monitoring System </strong></a>
+				
+				<form class="navbar-form navbar-right" style="margin:0px;display:inline;" role="search" method="get" action="search.jsp">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="search all information ">
+					</div>
+					<button type="submit" class="btn btn-default" ><strong> Search </strong></button>
+					
+					<a href="login.html"  style="float:right; margin-left:20px;" target="_blank;">
+					    <button type="button" class="btn btn-primary"><strong> Sign in </strong></button>
+				    </a>
+				    
+				</form>
+				
+				</h2>
+			</div>
+
+		</div>
+		
+		<div class="container">
+			
+			<!--胶囊式导航-->
+			<div class="row" style="margin-top: 5px;">
+				<ul class="nav nav-tabs nav-tabs-justified">
+					<li>
+						<a href="homepage.html"><strong style="font-size: 18px;"> Homepage </strong></a>
+					</li>
+					<li >
+						<a href="car_information.html"><strong style="font-size: 18px;"> Car-information </strong></a>
+						<!--ul class="dropdown-menu">
+		                    <li>ff</li>
+		                </ul-->
+					</li>
+					<li class="active">
+						<a href="car_track.html"><strong style="font-size: 18px;"> Car-track </strong></a>
+					</li>
+					
+				</ul>
+
+			</div>
+			
+			<div class="list-group">
+				
+			    <table class="table">
+			    	<caption><a style="text-decoration: none;">车辆轨迹<strong></strong></a></caption>
+			    	<thead>
+		                <tr class="success" style="text-align: center;">
+			                <th><strong>车牌号</strong></th>
+			                <th colspan="5" ><strong>历史轨迹(最近5个)</strong></th>
+			                <th colspan="6" ><strong>历史速度(最近5个)</strong></th>
+		                </tr>
+	                </thead>
+	                <tbody>
+		                <tr>
+			                <th>1</th>
+			                <th>地点1</th>
+			                <th>地点2</th>
+			                <th>地点3</th>
+			                <th>地点4</th>
+			                <th class="danger">地点5(当前)</th>
+			                <th>52</th>
+			                <th>50</th>
+			                <th>51</th>
+			                <th>53</th>
+			                <th class="danger">56(当前)</th>
+			                
+		                </tr>
+	                </tbody>
+			    </table>
+			   
+			</div>
+				
+		</div>
+		
+		
+		<!--显示地图-->
+		
+		
+		
+		<!--地图js api-->
+        <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=您申请的key值"></script>
+        <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+        <script type="text/javascript">
+        
+        // 创建地图
+	    var map = new AMap.Map('containerss', {
+		    resizeEnable: true,
+		    zoom: 1,
+		    center: [113.302234, 20.090035]
+	    });
+	    
+	    map.plugin(["AMap.Scale","AMap.MapType"], function() {
+            map.addControl(new AMap.Scale());
+            map.addControl(new AMap.MapType());
+       });
+       
+       
+	    // 地图覆盖物 位置 经纬度
+        var lnglats = [
+        [113.302234, 23.090035],
+        [113.382122, 23.021176],
+        [113.387271, 23.022501],
+        [113.398258, 23.114600]
+        ];// infs[]:存储：车辆速度-传感器信息-车辆状态
+        var infs = [
+        [56,32.23,1],
+        [46,23.35,1],
+        [62,23.21,0],
+        [53,34.23,1]
+        ];
+        var status=[['Good'],['Overspeed']];
+        var infoWindow = new AMap.InfoWindow({ offset: new AMap.Pixel(0, -30) });
+
+        for (var i = 0, marker; i < lnglats.length; i++) {
+            var marker = new AMap.Marker({
+                position: lnglats[i],
+                map: map
+            });
+            
+            if(infs[i][2]==0){
+            	marker.content = '车辆信息\n 编号：' + (i + 1) + '\n 速度:'+infs[i][0]
+                    +'\n 传感器信息：'+infs[i][1]+'\n 状态：'+'正常';
+            }
+            else if(infs[i][2]==1){
+            	marker.content = '车辆信息\n 编号：' + (i + 1) + '\n 速度:'+infs[i][0]
+                    +'\n 传感器信息：'+infs[i][1]+'\n 状态：'+'危险';
+            }
+            
+            marker.on('click', markerClick);
+            marker.on('dblclick', markerClickDouble);
+            marker.emit('click', {target: marker});
+        }
+        function markerClick(e) {
+            infoWindow.setContent(e.target.content);
+            infoWindow.open(map, e.target.getPosition());}
+        function markerClickDouble(e) {
+            alert(e.target.getPosition());}
+        
+        map.setFitView();
+	    
+        </script>
+	
+	</body>
+</html>
+
