@@ -38,8 +38,35 @@ Page({
       postList: carts,
       total_price: that.calculate_sun()
     });
+    if (app.globalData.local_database < 1) {
+      this.setData({
+        showModal: true,
+        total_price: this.calculate_sun()
+      });
+    }
+    else{
+      this.setData({
+        cartListShow: true,
+        total_price: this.calculate_sun()
+      });
+    }
   },
-
+  payBtn: function () {
+    if (app.globalData.local_database.length < 1) {
+      wx.showToast({
+        title: '购物车为空',
+        //icon: 'loading',
+        duration: 1000,
+        mask: true
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/nopay/nopay'
+      })
+    }
+    
+  },
   plus: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;

@@ -31,6 +31,6 @@
 <view class="cart_total">
   <view class="cart_total_inner">
     <text class="total">合计:￥{{total_price}}</text>
-    <view class="settle">结算</view>
+    <view class="settle" bindtap="payBtn">结算</view>
   </view>
 </view>

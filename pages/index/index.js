@@ -55,9 +55,6 @@ Page({
       app.globalData.local_database.push({ foodName: foodname, imgSrc: picsource, price: price, num:num})
     }
 
-    for (var x in app.globalData.local_database){
-      console.log(app.globalData.local_database[x].foodName + app.globalData.local_database[x].num)
-    }
 
   },
 
