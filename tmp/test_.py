@@ -21,24 +21,7 @@ import tensorflow as tf
 import split_class
 import eval_class
 
-# 全局变量：参数信息
-THRESHOLD_VALUE = None       # 预测结果域值
-MODEL_FILE = None            # 神经网络 meta 文件
-MODEL_CHECKPOINT = None      # 神经网络 checkpoint 文件夹
-INIT_FOLDER = None           # 初始数据 文件夹
-YES_FOLDER = None            # 已识别数据 文件夹
-NOT_FOLDER = None            # 问题数据 文件夹
-TRAINING_DATA_PATH = None    # 训练数据集目录
-TRAINING_DATA_INDEX = None   # 训练数据命名顺序
-POLLING_TIME_SLOT = None     # 轮询时间间隔
-BATCH_SIZE = None            # 批处理数目
-LATEST_DAYS = None           # 扫描最新几天
 
-#分类标签
-digital_label  = {0:'0',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',}
-#图片文件
-IMAGE_WIDTH  = 40
-IMAGE_HIGH   = 50
 
 # 读取配置文件并设置参数
 def read_configuration():
@@ -84,12 +67,8 @@ def identify_image():
     time_string = time.strftime("%Y%m%d%H%M", time.localtime())
     if os.path.exists('log/'+time_string) == False:
         os.mkdir('log/'+time_string)
-    log_file_1 = open('log/'+time_string+'/cut.txt','a+')       # 切割出问题图像
-    log_file_2 = open('log/'+time_string+'/identify.txt','a+')  # 识别出问题的图像
-    log_file_3 = open('log/'+time_string+'/wrong.txt','a+')     # 导致程序异常的图像
-    exist_exception = False # 是否存在程序异常
-    fail_identify = False   # 是否存在识别异常
-    fail_cut = False        # 是否存在裁剪异常
+   
+    
     
     print('------------start------------')
     functions.create_train(TRAINING_DATA_PATH)
@@ -113,24 +92,24 @@ def identify_image():
                 select_time_folder.append(tmp)
         start_time_length = len(time_folder)
         
-        # 处理每个时间文件夹
+        
         for tmp in select_time_folder: 
             current_time_folder = INIT_FOLDER + '/' + tmp
             total_sleep_times = 0
             
-            # 处理每个社区
+           
             community_folder = os.listdir(current_time_folder)
             for item in community_folder:
                 current_image_folder = current_time_folder + '/' + item
                 print(current_image_folder)
                 
-                #图片已写入
+                
                 if os.path.exists(current_image_folder + '/0.txt') == True:
                     #all_list = glob(current_image_folder + '/*.*')
                     all_list_ = os.listdir(current_image_folder)
                     all_list = [current_image_folder+'/'+i for i in all_list_]
                     img_list = []
-                    # 选择未处理图片
+                    
                     for ii in all_list:
                         if ii[-4:] == '.jpg' or ii[-4:]=='.bmp' or ii[-4:]=='.png':
                             if os.path.exists(ii[:-4]+'.txt') == False:
@@ -138,13 +117,13 @@ def identify_image():
                                 
                     if len(img_list)>0:
                         for img_path in img_list:
-                            try: # 尝试裁剪+识别
+                            try: 
                                 #new_folder = img_path.split('\\')[-1].split('.')[-2]
                                 img = cv2.imread(img_path)
                                 print(img_path)
                                 #cv2.imshow('image',img)
                                 #cv2.waitKey(0)
-                                # 如果图像读取出问题
+                                
                                 if img.shape is None:
                                     log_file_3.write(img_path)
                                     log_file_3.write('\n')
@@ -231,9 +210,7 @@ def identify_image():
     print('------------end------------')
     
 if __name__ == '__main__': 
-    # 读取配置文件
     read_configuration()
-    # 识别图像
     identify_image()
     
     
