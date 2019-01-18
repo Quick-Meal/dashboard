@@ -1,45 +1,3 @@
-require 'torch'
-require 'nn'
-require 'image'
-require 'optim'
-
-require 'loadcaffe'
-require 'libcuda_utils'
-
-require 'cutorch'
-require 'cunn'
-
-local cmd = torch.CmdLine()
-
--- Basic options
-cmd:option('-style_image', 'examples/inputs/seated-nude.jpg', 'Style target image')
-cmd:option('-content_image', 'examples/inputs/tubingen.jpg', 'Content target image')
-cmd:option('-cnnmrf_image', 'examples/inputs/cnnmrf.jpg', 'CNNMRF image')
-cmd:option('-tmask_image', 'examples/inputs/t_mask.jpg', 'Content tight mask image')
-cmd:option('-mask_image', 'examples/inputs/t_mask.jpg', 'Content loose mask image')
-cmd:option('-image_size', 700, 'Maximum height / width of generated image')
-cmd:option('-gpu', 0, 'Zero-indexed ID of the GPU to use; for CPU mode set -gpu = -1')
-
--- Optimization optins
-cmd:option('-init', 'image', 'random|image')
-cmd:option('-optimizer', 'lbfgs', 'lbfgs|adam')
-cmd:option('-learning_rate', 0.1)
-
--- Output options
-cmd:option('-print_iter', 50)
-cmd:option('-save_iter', 100)
-cmd:option('-index', 0)
-cmd:option('-output_image', 'out.png')
-
--- Other options
-cmd:option('-original_colors', 0)
-cmd:option('-pooling', 'max', 'max|avg')
-cmd:option('-proto_file', 'models/VGG_ILSVRC_19_layers_deploy.prototxt')
-cmd:option('-model_file', 'models/VGG_ILSVRC_19_layers.caffemodel')
-cmd:option('-backend', 'nn', 'nn|cudnn|clnn')
-cmd:option('-cudnn_autotune', false)
-cmd:option('-seed', 316)
-cmd:option('-num_iterations', 1000)
 
 -- Patchmatch
 cmd:option('-patchmatch_size', 3)
@@ -677,23 +635,7 @@ end
 function TVLoss:updateOutput(input)
   self.output = input
   return self.output
-end
 
--- TV loss backward pass inspired by kaishengtai/neuralart
-function TVLoss:updateGradInput(input, gradOutput)
-  self.gradInput:resizeAs(input):zero()
-  local C, H, W = input:size(1), input:size(2), input:size(3)
-  self.x_diff:resize(3, H - 1, W - 1)
-  self.y_diff:resize(3, H - 1, W - 1)
-  self.x_diff:copy(input[{{}, {1, -2}, {1, -2}}])
-  self.x_diff:add(-1, input[{{}, {1, -2}, {2, -1}}])
-  self.y_diff:copy(input[{{}, {1, -2}, {1, -2}}])
-  self.y_diff:add(-1, input[{{}, {2, -1}, {1, -2}}])
-  self.gradInput[{{}, {1, -2}, {1, -2}}]:add(self.x_diff):add(self.y_diff)
-  self.gradInput[{{}, {1, -2}, {2, -1}}]:add(-1, self.x_diff)
-  self.gradInput[{{}, {2, -1}, {1, -2}}]:add(-1, self.y_diff)
-
-  self.gradInput:cmul(self.msk)
   local magnitude = torch.norm(self.gradInput, 2) 
   self.gradInput:div(magnitude + 1e-8)
   self.gradInput:mul(self.strength)
