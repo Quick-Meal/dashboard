@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>530</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>title=点餐顺序图
+obj=_:顾客_~a
+obj=_:系统_~b
+
+on=a;a-&gt;&gt;&gt;b:扫描二维码;on=b
+b.&gt;a:菜单;off=a;
+combinedFragment=loop~loop1 a b;
+on=a;a-&gt;&gt;&gt;b:选择菜品
+b.&gt;a:返回菜品信息，购物车总价;off=a;--=loop1;
+on=a;a-&gt;&gt;&gt;b:提交订单;
+b.&gt;a:订单信息;
+a-&gt;&gt;&gt;b:确认订单;off=a;off=b;</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

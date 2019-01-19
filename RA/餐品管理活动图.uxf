@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>778</w>
+      <h>823</h>
+    </coordinates>
+    <panel_attributes>title:餐品管理活动图
+Start
+后厨管理员进入餐品管理界面
+While[浏览餐品信息]
+	[选择操作]
+	If
+		[增加餐品]
+		新建餐品页
+		             添加餐品信息\ 名称、价格、关键词、样品图
+
+		[更改餐品]
+		已有餐品页
+		             更改餐品信息\ 名称、价格、关键词、样品图
+
+		[删除餐品]
+		删除相关菜单项
+	EndIf
+	Fork
+		应用相关操作
+
+		推送新菜单至客户端
+	Sync
+[退出餐品管理界面]
+End
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

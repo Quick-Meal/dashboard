@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>730</w>
+      <h>670</h>
+    </coordinates>
+    <panel_attributes>title=订单管理顺序图
+obj=_:顾客_~a
+obj=_:系统_~b
+obj=_:前台管理员_~c
+obj=_:后厨管理员_~d
+
+on=a; a-&gt;&gt;&gt;b:提交订单; on=b
+b.&gt;&gt;&gt;a:订单信息;off=a;
+on=a;a-&gt;&gt;&gt;b:支付订单;
+b-&gt;&gt;&gt;c:订单信息;
+c.&gt;b:接受订单;
+b-&gt;d:后厨查看订单;on=d;
+d.&gt;a:配餐进度信息;off=a;off=b;off=d
+
+on=a; a-&gt;&gt;&gt;b:取消订单;on=b;
+b-&gt;c:通知取消订单;
+b-&gt;d:通知取消订单;
+b.&gt;a:返回新的订单状态;off=a;off=b;
+
+c-&gt;b:取消订单;on=b;on=c
+b.&gt;c:取消成功;
+b-&gt;a:返回新的订单状态;off=b;off=c
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>782</w>
+      <h>776</h>
+    </coordinates>
+    <panel_attributes>title:点餐活动图
+Start
+   顾客就坐\扫码进入菜单
+While[浏览菜单]
+	If 
+		[查看餐品详细信息]
+		进入餐品详细页
+		
+		|
+	EndIf
+	加入餐品到购物车
+	Fork
+		选择规格
+
+		选择份数
+	Sync
+
+	[浏览购物车]
+	Fork
+		查看购物车信息
+
+		更改规格
+
+		更改份数
+	Sync
+
+[提交订单]
+End
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

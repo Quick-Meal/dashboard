@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x>
+      <y>0</y>
+      <w>470</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>title=餐品管理顺序图
+obj=_:后厨_~a
+obj=_:系统_~b
+
+on=a;a-&gt;b : 请求增加餐品; on=b
+a-&gt;&gt;&gt;b:填写餐品信息;
+b.&gt;a:添加成功，更新菜单信息;off=a;
+
+on=a;a-&gt;b : 请求更改餐品;
+a-&gt;&gt;&gt;b:填写餐品信息;
+b.&gt;a:修改成功，更新菜单信息;off=a;
+
+on=a;a-&gt;&gt;&gt;b:请求删除餐品;
+b.&gt;a:删除成功，更新菜单信息;off=a;off=b</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
